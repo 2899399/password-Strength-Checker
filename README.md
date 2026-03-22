@@ -1,6 +1,6 @@
 # 🔐 Password Strength Checker
 
-A beginner-friendly cybersecurity tool built in Python that checks how strong your password is.
+ Built in Python that checks how strong your password is.
 
 ## 🚀 Features
 - Checks password length, uppercase, lowercase, numbers & special characters
@@ -18,14 +18,14 @@ python password_checker.py
 ## 📸 Output Example
 
 ```
-Password enter karo: Hello@123
+Enter Password: Hello@123
 
 📊 Result:
   Strength : ✅ STRONG
   Score    : [████████████████░░░░] 80/100
 
 💡 Suggestions:
-  📏 Password kam se kam 12 characters ka banao
+  📏 Password size must put 7 to 80 minimum 
 ```
 
 ## 🧠 What I Learned
@@ -39,7 +39,7 @@ Password enter karo: Hello@123
 - `re` module (built-in)
 
 ## 👨‍💻 Author
-[Apna Naam Yahan Likho]
+Parveen Kumar
 
 ---
 ⭐ If you found this useful, give it a star!
