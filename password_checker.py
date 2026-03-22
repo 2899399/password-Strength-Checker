@@ -1,8 +1,3 @@
-# ============================================
-#   Password Strength Checker
-#   Beginner Cybersecurity Project
-#   By: [Apna Naam Yahan Likho]
-# ============================================
 
 import re
 
@@ -23,47 +18,47 @@ def check_password(password):
         score += 30
     elif len(password) >= 8:
         score += 15
-        suggestions.append("📏 Password kam se kam 12 characters ka banao")
+        suggestions.append("📏 Create password atleast 12+ character")
     else:
-        suggestions.append("📏 Password bahut chota hai! 12+ characters use karo")
+        suggestions.append("📏 Password is so small !  use Chracters 12+")
 
     # ── 2. Uppercase letters ─────────────────
     if re.search(r'[A-Z]', password):
         score += 20
     else:
-        suggestions.append("🔠 Kam se kam ek Capital letter (A-Z) add karo")
+        suggestions.append("🔠 Add atleast one capital letter ( A-Z) ")
 
     # ── 3. Lowercase letters ─────────────────
     if re.search(r'[a-z]', password):
         score += 20
     else:
-        suggestions.append("🔡 Kam se kam ek small letter (a-z) add karo")
+        suggestions.append("🔡 Add atleast one small letter (a-z) ")
 
     # ── 4. Numbers ───────────────────────────
     if re.search(r'[0-9]', password):
         score += 15
     else:
-        suggestions.append("🔢 Kam se kam ek number (0-9) add karo")
+        suggestions.append("🔢 Add atleast one number (0-9)")
 
     # ── 5. Special characters ────────────────
     if re.search(r'[!@#$%^&*()_+\-=\[\]{};\':"\\|,.<>\/?]', password):
         score += 15
     else:
-        suggestions.append("✨ Ek special character add karo jaise !@#$%")
+        suggestions.append("✨ Add atleast one special character !@#$%")
 
     # ── 6. Common passwords check ────────────
     common = ["password", "123456", "qwerty", "abc123",
               "password1", "admin", "letmein", "welcome"]
     if password.lower() in common:
         score = 0
-        suggestions = ["🚫 Yeh password bahut common hai! Bilkul mat use karo."]
+        suggestions = ["🚫 This password is too common! Do not use."]
 
     return score, suggestions
 
 
 def get_strength_label(score):
     if score >= 90:
-        return f"{GREEN}{BOLD}💪 BAHUT STRONG{RESET}", GREEN
+        return f"{GREEN}{BOLD}💪 TOO STRONG{RESET}", GREEN
     elif score >= 70:
         return f"{GREEN}✅ STRONG{RESET}", GREEN
     elif score >= 50:
@@ -71,7 +66,7 @@ def get_strength_label(score):
     elif score >= 30:
         return f"{RED}❌ WEAK{RESET}", RED
     else:
-        return f"{RED}{BOLD}☠️  BAHUT WEAK{RESET}", RED
+        return f"{RED}{BOLD}☠️  VERy WEAK{RESET}", RED
 
 
 def draw_progress_bar(score, color):
@@ -87,14 +82,14 @@ def main():
     print(f"{'='*45}{RESET}\n")
 
     while True:
-        password = input(f"{BOLD}Password enter karo (ya 'q' likhke exit karo): {RESET}")
+        password = input(f"{BOLD}Enter the password (or enter 'q' to exit ): {RESET}")
 
         if password.lower() == 'q':
-            print(f"\n{CYAN}👋 Alvida! Safe raho! 🔐{RESET}\n")
+            print(f"\n{CYAN}👋 Bye! Be safe ! 🔐{RESET}\n")
             break
 
         if not password:
-            print(f"{RED}❌ Kuch toh likho!{RESET}\n")
+            print(f"{RED}❌ Wright Something!{RESET}\n")
             continue
 
         score, suggestions = check_password(password)
@@ -110,7 +105,7 @@ def main():
             for s in suggestions:
                 print(f"  {s}")
         else:
-            print(f"\n{GREEN}🎉 Zabardast! Yeh ek perfect password hai!{RESET}")
+            print(f"\n{GREEN}🎉 Woooww Very Nice! That is perfect password!{RESET}")
 
         print(f"\n{'-'*45}\n")
 
